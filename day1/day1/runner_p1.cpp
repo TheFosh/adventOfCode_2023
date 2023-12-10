@@ -1,4 +1,4 @@
-//Jake Swanson 1.1: day1_part1
+//Jake Swanson 1.1: runner_p1 day1_part1
 /*
 * Part 1
 * Given a puzzle input of lines of text,
@@ -7,22 +7,21 @@
 * Combine all the numbers together to get the solution to the puzzle.
 */
 
-#include <iostream>
-#include <string>
-#include <fstream>
-
-using namespace std;
+#include "Inventory_p1.h"
 
 int main() {
-	fstream inFile;
+
+	Inventory inv;
+	string fileName = "input.txt";
 
 	try {
-		inFile.open("input.txt");
-		if (inFile.fail()) throw exception("Could not open file");
+		if (!inv.getData(fileName)) throw exception("Could not open file");
 	}
 	catch (exception e) {
 		cerr << e.what() << endl;
 	}
+
+	inv.printData();
 
 	return 0;
 }

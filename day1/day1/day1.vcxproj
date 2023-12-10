@@ -127,10 +127,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="runner_part1.cpp" />
+    <ClCompile Include="Inventory_p1.cpp" />
+    <ClCompile Include="runner_p1.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="input.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Inventory_p1.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

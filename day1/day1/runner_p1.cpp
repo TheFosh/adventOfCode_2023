@@ -1,4 +1,4 @@
-//Jake Swanson 1.1: runner_p1 day1_part1
+//Jake Swanson 1.1: runner file
 /*
 * Part 1
 * Given a puzzle input of lines of text,
@@ -21,7 +21,9 @@ int main() {
 		cerr << e.what() << endl;
 	}
 
-	inv.printData();
+	inv.getTotal();
+
+	cout << inv.viewTotal(); //Answer printed: 54331
 
 	return 0;
 }

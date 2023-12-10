@@ -1,4 +1,4 @@
-//Jake Swanson 1.1: InvetoryHeader_p1 day1_part1
+//Jake Swanson 1.1: Invetory header
 /*
 * Header for Inventory object.
 * Used to store and minpulte the given string data
@@ -16,14 +16,21 @@ using namespace std;
 
 class Inventory {
 public:
-	Inventory();
-	bool getData(string);
-
-	void printData();
+	Inventory();//Default constructor
+	bool getData(string);//Gets all lines from puzzle input file and stores them in the data array
+	int viewTotal() const { return totalAnswer; }//Returns the amount of total answer
+	void getTotal();//Runs function that gathers all numbers from file and adds to the total
+	void printData(); //Prints data in array
 
 private:
 	string* data;
+	int totalAnswer;
 	int const CAPACITY = 1000;
+	int index;
+
+protected:
+	int getFirstNum(string);//Given a string, the first num is returned
+	int getLastNum(string);//Given a string and using the index, the last num is returned
 };
 
 #endif // !INV_P1_H

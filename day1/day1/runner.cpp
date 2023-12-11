@@ -23,7 +23,7 @@ int main() {
 		cerr << e.what() << endl;
 	}
 
-	inv.getTotal();
+	//inv.getTotal();
 
 	cout << inv.viewTotal(); //Answer printed: 54331
 

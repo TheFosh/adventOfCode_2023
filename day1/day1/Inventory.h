@@ -29,11 +29,11 @@ private:
 
 	//For part2. Holds a word of the corresponding index number
 	const char* numWords[10] = { "zero", "one", "two","three", "four", "five", "six", "seven", "eight", "nine" };
+	const int wordSize = 10;
 
 protected:
 	int getFirstNum(string);//Given a string, the first num is returned
 	int getLastNum(string);//Given a string and using the index, the last num is returned
-	int checkWord(string, int);//Given a string and the index of where it starts, returns the number assosiated with string
 };
 
 #endif // !INV_H

@@ -37,6 +37,9 @@ bool Inventory::getData(string _fileName_) {
 void Inventory::getTotal() {
 	for (int i = 0; i < CAPACITY; ++i) {
 		string currLine = data[i];
+		//cout << "Line: " << i +1 << endl;
+	  	//cout << getFirstNum(currLine) << endl;
+		//cout << getLastNum(currLine) << endl;
 
 		totalAnswer += (10 * getFirstNum(currLine) + getLastNum(currLine));
 	}
@@ -50,14 +53,23 @@ int Inventory::getFirstNum(string _line_) {
 	
 	for (int i = 0; i < _line_.size(); ++i) {
 
-		//CHANGE FOR PART 2
-
 		tmpChar = _line_[i];
 
+		// Checks if current char is in the range 0-9.
+		// If yes, it converts it to an int.
+		// Returns the number if so
 		if (tmpChar >= '0' && tmpChar <= '9') {
 			firstNum = tmpChar - '0';
-			index = i;
+			index = i; // Sets the index of first to help checking the next digit.
 			return firstNum;
+		}
+
+		//CHANGE FOR PART 2
+		for (int w = 0; w < wordSize; ++w) {
+			if (_line_.find(numWords[w]) == i) {
+				index = i;
+				return w;
+			}
 		}
 	}
 
@@ -65,18 +77,23 @@ int Inventory::getFirstNum(string _line_) {
 }
 
 int Inventory::getLastNum(string _line_) {
+
 	int firstNum = -1;
 	char tmpChar;
 
 	for (int i = index; i < _line_.size(); ++i) {
-
-		firstNum = checkWord(_line_, i);
-		if (firstNum != -1)
-			return firstNum;
-
+		// Checks if current char is in the range 0-9.
+		// If yes, it converts it to an int.
 		tmpChar = _line_[i];
 		if (tmpChar >= '0' && tmpChar <= '9') {
 			firstNum = tmpChar - '0';
+		}
+
+		// PART 2
+		for (int w = 0; w < wordSize; ++w) {
+			if (_line_.rfind(numWords[w]) == i) {
+				firstNum = w;
+			}
 		}
 	}
 
@@ -84,11 +101,7 @@ int Inventory::getLastNum(string _line_) {
 }
 
 
-//NEW METHOD FOR PART 2
-int Inventory::checkWord(string _line_, int index) {
-	return -1;
-}
-
+// Prints all lines in puzzle data
 void Inventory::printData() {
 	for (int i = 0; i < CAPACITY; ++i) {
 		cout << data[i] << endl;

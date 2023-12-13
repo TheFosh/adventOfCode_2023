@@ -23,9 +23,11 @@ int main() {
 		cerr << e.what() << endl;
 	}
 
-	//inv.getTotal();
+	inv.getTotal();
 
-	cout << inv.viewTotal(); //Answer printed: 54331
+	cout << inv.viewTotal(); 
+	//Part 1 answer printed: 54331
+	//Part 2 answer printed: 54518
 
 	return 0;
 }

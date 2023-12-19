@@ -12,8 +12,21 @@
 * ------------------------------------------------------------------------------------------------
 */
 
-#include "Game.h"
+#include "Inventory.h"
 
 int main() {
-	
+
+	// Creats inventory object with all game objects from given input file.
+	Inventory inv("input.txt");
+
+	// HARD CODDED
+	// Solution set for part 1
+	// Number correspnding to color wanted
+	// {red, blue, green}
+	int solution[] = {12,13,14};
+
+	// Given the solution set,
+	// the inventory method, solveProblem, prints out solution to puzzle
+	//cout << inv.solvePuzzle(solution);
+
 }

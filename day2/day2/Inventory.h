@@ -23,6 +23,11 @@ public:
 	void printInventory();
 
 protected:
+	////USED FOR MAKING GAME OBJECT////
+
+	Game makeGame(string);// Given a string for a game, a game object will be generated
+//	string spliceComma(string);// Removes comma at the end of a given string.
+
 
 private:
 	list<Game> data;

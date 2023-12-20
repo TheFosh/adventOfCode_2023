@@ -15,7 +15,7 @@ using namespace std;
 class Game {
 public:
 	Game(); // Default constuctor
-	Game(int* r, int, int* b, int, int* g, int); // Constructor given int pointers of arrays
+	Game(int* r, int* b, int* g); // Constructor given int pointers of arrays
 	~Game(); // Deconstructor
 	Game(const Game&); // Copy Constructor
 	const Game operator=(const Game&); // Assignment overloader
@@ -26,12 +26,11 @@ public:
 
 
 private:
+	const int COLOR_CAPACITY = 3;
+
 	int* red; // Points to an array for the numbers associated with red
-	int redSize; // Stores size of the red array
 	int* blue; // Points to an array for the numbers associated with blue
-	int blueSize; // Stores size of the blue array
 	int* green; // Points to an array for the numbers associated with green
-	int greenSize; // Stores size of the green array
 };
 
 #endif // !G_H

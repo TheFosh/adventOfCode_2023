@@ -5,33 +5,27 @@
 
 Game::Game() {
 	red = nullptr;
-	redSize = 0;
 	blue = nullptr;
-	blueSize = 0;
 	green = nullptr;
-	greenSize = 0;
 }
 
-Game::Game(int* _red, int _rS, int* _blue, int _bS, int* _green, int _gS) {
+Game::Game(int* _red, int* _blue, int* _green) {
 
-	red = new int[_rS];
-	redSize = _rS;
+	red = new int[COLOR_CAPACITY];
 
-	for (int i = 0; i < _rS; ++i) {
+	for (int i = 0; i < COLOR_CAPACITY; ++i) {
 		red[i] = _red[i];
 	}
 
-	blue = new int[_bS];
-	blueSize = _bS;
+	blue = new int[COLOR_CAPACITY];
 
-	for (int i = 0; i < _bS; ++i) {
+	for (int i = 0; i < COLOR_CAPACITY; ++i) {
 		blue[i] = _blue[i];
 	}
 
-	green = new int[_gS];
-	greenSize = _gS;
+	green = new int[COLOR_CAPACITY];
 
-	for (int i = 0; i < _gS; ++i) {
+	for (int i = 0; i < COLOR_CAPACITY; ++i) {
 		green[i] = _green[i];
 	}
 }
@@ -49,24 +43,21 @@ Game::~Game() {
 
 Game::Game(const Game& obj) {
 
-	red = new int[obj.redSize];
-	redSize = obj.redSize;
+	red = new int[obj.COLOR_CAPACITY];
 
-	for (int i = 0; i < obj.redSize; ++i) {
+	for (int i = 0; i < obj.COLOR_CAPACITY; ++i) {
 		red[i] = obj.red[i];
 	}
 
-	blue = new int[obj.blueSize];
-	blueSize = obj.blueSize;
+	blue = new int[obj.COLOR_CAPACITY];
 
-	for (int i = 0; i < obj.blueSize; ++i) {
+	for (int i = 0; i < obj.COLOR_CAPACITY; ++i) {
 		blue[i] = obj.blue[i];
 	}
 
-	green = new int[obj.greenSize];
-	greenSize = obj.greenSize;
+	green = new int[obj.COLOR_CAPACITY];
 
-	for (int i = 0; i < obj.greenSize; ++i) {
+	for (int i = 0; i < obj.COLOR_CAPACITY; ++i) {
 		green[i] = obj.green[i];
 	}
 }
@@ -78,24 +69,21 @@ const Game Game::operator=(const Game& rhs) {
 		delete[] blue;
 		delete[] green;
 
-		red = new int[rhs.redSize];
-		redSize = rhs.redSize;
+		red = new int[rhs.COLOR_CAPACITY];
 
-		for (int i = 0; i < rhs.redSize; ++i) {
+		for (int i = 0; i < rhs.COLOR_CAPACITY; ++i) {
 			red[i] = rhs.red[i];
 		}
 
-		blue = new int[rhs.blueSize];
-		blueSize = rhs.blueSize;
+		blue = new int[rhs.COLOR_CAPACITY];
 
-		for (int i = 0; i < rhs.blueSize; ++i) {
+		for (int i = 0; i < rhs.COLOR_CAPACITY; ++i) {
 			blue[i] = rhs.blue[i];
 		}
 
-		green = new int[rhs.greenSize];
-		greenSize = rhs.greenSize;
+		green = new int[rhs.COLOR_CAPACITY];
 
-		for (int i = 0; i < rhs.greenSize; ++i) {
+		for (int i = 0; i < rhs.COLOR_CAPACITY; ++i) {
 			green[i] = rhs.green[i];
 		}
 	}
@@ -106,19 +94,19 @@ const Game Game::operator=(const Game& rhs) {
 void Game::printArrays() {
 	cout << "-----Red-----" << endl;
 
-	for (int i = 0; i < redSize; ++i) {
+	for (int i = 0; i < COLOR_CAPACITY; ++i) {
 		cout << red[i] << endl;
 	}
 
 	cout << "-----Blue-----" << endl;
 
-	for (int i = 0; i < blueSize; ++i) {
+	for (int i = 0; i < COLOR_CAPACITY; ++i) {
 		cout << blue[i] << endl;
 	}
 
 	cout << "-----Green-----" << endl;
 
-	for (int i = 0; i < greenSize; ++i) {
+	for (int i = 0; i < COLOR_CAPACITY; ++i) {
 		cout << green[i] << endl;
 	}
 }
@@ -126,19 +114,19 @@ void Game::printArrays() {
 ostream& operator<<(ostream& out, const Game& obj) {
 	cout << "-----Red-----\n";
 
-	for (int i = 0; i < obj.redSize; ++i) {
+	for (int i = 0; i < obj.COLOR_CAPACITY; ++i) {
 		cout << obj.red[i] << endl;
 	}
 
 	cout << "-----Blue-----" << endl;
 
-	for (int i = 0; i < obj.blueSize; ++i) {
+	for (int i = 0; i < obj.COLOR_CAPACITY; ++i) {
 		cout << obj.blue[i] << endl;
 	}
 
 	cout << "-----Green-----" << endl;
 
-	for (int i = 0; i < obj.greenSize; ++i) {
+	for (int i = 0; i < obj.COLOR_CAPACITY; ++i) {
 		cout << obj.green[i] << endl;
 	}
 

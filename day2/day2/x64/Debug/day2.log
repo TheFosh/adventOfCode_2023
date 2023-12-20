@@ -1,4 +1,5 @@
 ﻿  Inventory.cpp
-  runner.cpp
-  Generating Code...
+C:\Users\SwansonJacob\git\adventOfCode_2023\day2\day2\Inventory.cpp(40,8): warning C4101: 'blueHolder': unreferenced local variable
+C:\Users\SwansonJacob\git\adventOfCode_2023\day2\day2\Inventory.cpp(39,8): warning C4101: 'redHolder': unreferenced local variable
+C:\Users\SwansonJacob\git\adventOfCode_2023\day2\day2\Inventory.cpp(41,8): warning C4101: 'greenHolder': unreferenced local variable
   day2.vcxproj -> C:\Users\SwansonJacob\git\adventOfCode_2023\day2\x64\Debug\day2.exe

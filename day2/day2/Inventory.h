@@ -24,10 +24,8 @@ public:
 
 protected:
 	////USED FOR MAKING GAME OBJECT////
-
 	Game makeGame(string);// Given a string for a game, a game object will be generated
-//	string spliceComma(string);// Removes comma at the end of a given string.
-
+	int countSemiColan(string);// Given a strign for a game, the number of semi colans in it is counted
 
 private:
 	list<Game> data;

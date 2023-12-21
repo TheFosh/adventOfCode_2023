@@ -137,8 +137,28 @@ void Inventory::printInventory() {
 }
 
 int Inventory::solvePuzzle(int* solution) {
+	int total = 0;
+
+	int count = 1;
 	for (Game g : data)
 	{
-		if()
+		bool check = true;
+
+		int* red = g.getReds();
+		int* blue = g.getBlues();
+		int* green = g.getGreen();
+
+		for (int i = 0; i < g.getSize(); ++i)
+		{	
+			if (red[i] > solution[0] || blue[i] > solution[1] || green[i] > solution[2])
+				check = false;
+		}
+
+		if (check)
+			total += count;
+
+		++count;
 	}
+
+	return total;
 }

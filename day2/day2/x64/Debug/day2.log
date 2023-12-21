@@ -1,2 +1,5 @@
-﻿  Inventory.cpp
+﻿  Game.cpp
+  Inventory.cpp
+  runner.cpp
+  Generating Code...
   day2.vcxproj -> C:\Users\SwansonJacob\git\adventOfCode_2023\day2\x64\Debug\day2.exe

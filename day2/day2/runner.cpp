@@ -19,8 +19,6 @@ int main() {
 	// Creats inventory object with all game objects from given input file.
 	Inventory inv("input.txt");
 
-	inv.printInventory();
-
 	// HARD CODDED
 	// Solution set for part 1
 	// Number correspnding to color wanted

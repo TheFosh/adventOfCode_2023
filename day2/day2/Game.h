@@ -21,6 +21,10 @@ public:
 	const Game operator=(const Game&); // Assignment overloader
 	int getSize() { return arraySize; } // Returns size of array
 
+	int* getReds() { return red; }
+	int* getBlues() { return blue; }
+	int* getGreen() { return green; }
+
 	//////FOR TESTING//////
 	void printArrays(); // Returns string contents of arrays
 	friend ostream& operator<<(ostream&, const Game&); // Allows for printing game objects

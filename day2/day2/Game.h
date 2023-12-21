@@ -19,6 +19,7 @@ public:
 	~Game(); // Deconstructor
 	Game(const Game&); // Copy Constructor
 	const Game operator=(const Game&); // Assignment overloader
+	int getSize() { return arraySize; } // Returns size of array
 
 	//////FOR TESTING//////
 	void printArrays(); // Returns string contents of arrays

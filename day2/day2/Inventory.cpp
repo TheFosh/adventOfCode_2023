@@ -37,9 +37,14 @@ Inventory::Inventory(string fileName) {
 
 Game Inventory::makeGame(string line)
 {
-	int* rArrayHolder = new int[3];
-	int* bArrayHolder = new int[3];
-	int* gArrayHolder = new int[3];
+	int arraySize = countSemiColan(line) + 1;
+
+	int* rArrayHolder = new int[arraySize];
+	int* bArrayHolder = new int[arraySize];
+	int* gArrayHolder = new int[arraySize];
+
+	//For finding index of in color array
+	int arrayCount = 0;
 
 	// Loops until there are no semi colans found
 	while (line.find_first_of(';') != -1)
@@ -47,31 +52,47 @@ Game Inventory::makeGame(string line)
 		string currentGame = line.substr(0, line.find_first_of(';'));
 		line = line.substr(line.find_first_of(';') + 2);
 
-		int redHolder;
-		int blueHolder;
-		int greenHolder;
-
 		stringstream words(currentGame);
 
 		int currNum;
 		string currColor;
 
-		words >> currNum;
-		words >> currColor;
-
-		cout << currNum << endl;
-		cout << currColor << endl;
-
-		/*while (currentGame != "")
+		while (!words.fail())
 		{
-			int currNumber;
-			string currColor;
+			words >> currNum;
+			words >> currColor;
 
+			if (currColor.find_first_of(',') != -1)
+				currColor = currColor.substr(0, currColor.find_first_of(','));
 
+			if (currColor == "red")
+				rArrayHolder[arrayCount] = currNum;
 
-		}*/
+			else if (currColor == "blue")
+				bArrayHolder[arrayCount] = currNum;
 
+			else if (currColor == "green")
+				gArrayHolder[arrayCount] = currNum;
+			
+		}
+
+		arrayCount++;
 		//words >> currNumber;
-
 	}
+
+	cout << line << endl;
+
+	return Game(arraySize, rArrayHolder, bArrayHolder, gArrayHolder);
+}
+
+int Inventory::countSemiColan(string line) {
+	int count = 0;
+
+	for (int i = 0; i < line.size(); ++i)
+	{
+		if (line[i] == ';')
+			++count;
+	}
+
+	return count;
 }

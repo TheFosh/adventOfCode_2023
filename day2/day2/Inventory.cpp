@@ -39,9 +39,15 @@ Game Inventory::makeGame(string line)
 {
 	int arraySize = countSemiColan(line) + 1;
 
+	//Sets each array to be the temp array
 	int* rArrayHolder = new int[arraySize];
 	int* bArrayHolder = new int[arraySize];
 	int* gArrayHolder = new int[arraySize];
+
+	// Fill arrays with zeros
+	for (int i = 0; i < arraySize; ++i) {
+		rArrayHolder[i] = bArrayHolder[i] = gArrayHolder[i] = 0;
+	}
 
 	//For finding index of in color array
 	int arrayCount = 0;
@@ -80,7 +86,29 @@ Game Inventory::makeGame(string line)
 		//words >> currNumber;
 	}
 
-	cout << line << endl;
+	stringstream words(line);
+
+	int currNum;
+	string currColor;
+
+	while (!words.fail())
+	{
+		words >> currNum;
+		words >> currColor;
+
+		if (currColor.find_first_of(',') != -1)
+			currColor = currColor.substr(0, currColor.find_first_of(','));
+
+		if (currColor == "red")
+			rArrayHolder[arrayCount] = currNum;
+
+		else if (currColor == "blue")
+			bArrayHolder[arrayCount] = currNum;
+
+		else if (currColor == "green")
+			gArrayHolder[arrayCount] = currNum;
+
+	}
 
 	return Game(arraySize, rArrayHolder, bArrayHolder, gArrayHolder);
 }
@@ -95,4 +123,22 @@ int Inventory::countSemiColan(string line) {
 	}
 
 	return count;
+}
+
+void Inventory::printInventory() {
+	int count = 1;
+	for (Game g : data)
+	{
+		cout << "Game " << count << ":" << endl;
+		cout << g << endl;
+
+		count++;
+	}
+}
+
+int Inventory::solvePuzzle(int* solution) {
+	for (Game g : data)
+	{
+		if()
+	}
 }

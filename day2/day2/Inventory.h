@@ -17,7 +17,7 @@ public:
 	// the list of game objects is created using the data file
 	Inventory(string);// Constructor
 //	~Inventory();// Deconstructor
-	int solvePuzzle(int[]);// Puzzle solving method
+	int solvePuzzle(int* );// Puzzle solving method
 
 	///////FOR TESTING////////
 	void printInventory();

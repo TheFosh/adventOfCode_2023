@@ -23,7 +23,7 @@ int main() {
 	// Solution set for part 1
 	// Number correspnding to color wanted
 	// {red, blue, green}
-	int solution[] = {12,13,14};
+	int solution[] = {12,14,13};
 
 	// Given the solution set,
 	// the inventory method, solveProblem, prints out solution to puzzle

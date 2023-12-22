@@ -34,6 +34,40 @@ Inventory::Inventory(string fileName) {
 	inFile.close();
 }
 
+list<Game> Inventory::getMinSet() {
+	list<Game> myList;
+
+	list<Game>::iterator itr;
+	for (itr; itr != data.end(); ++itr)
+	{
+		Game g = *itr;
+
+		int* redMax = 0;
+		int* blueMax = 0;
+		int* greenMax = 0;
+
+		int* currReds = g.getReds();
+		int* currBlues = g.getBlues();
+		int* currGreens = g.getGreens();
+
+		for (int i = 0; i < g.getSize(); ++i)
+		{
+			if (currReds[i] > *redMax)
+				*redMax = currReds[i];
+			if (currBlues[i] > *blueMax)
+				*blueMax = currBlues[i];
+			if (currGreens[i] > *greenMax)
+				*greenMax = currGreens[i];
+		}
+		int size = 1;
+
+		Game tempGame(size, redMax, blueMax, greenMax);
+		myList.push_back(tempGame);
+	}
+
+	return myList;
+}
+
 
 Game Inventory::makeGame(string line)
 {
@@ -127,10 +161,12 @@ int Inventory::countSemiColan(string line) {
 
 void Inventory::printInventory() {
 	int count = 1;
-	for (Game g : data)
+
+	list<Game>::iterator itr = data.begin();
+	for (itr; itr != data.end(); ++itr)
 	{
 		cout << "Game " << count << ":" << endl;
-		cout << g << endl;
+		cout << *itr << endl;
 
 		count++;
 	}
@@ -140,16 +176,30 @@ int Inventory::solvePuzzle(int* solution) {
 	int total = 0;
 
 	int count = 1;
-	for (Game g : data)
+	
+	cout << solution[0] << solution[1] << solution[2] << endl;
+
+	list<Game>::iterator itr = data.begin();
+	for (itr; itr != data.end(); ++itr)
 	{
+
+		Game g = *itr;
+		//cout << "current game: " << count << endl;
+
 		bool check = true;
 
 		int* red = g.getReds();
 		int* blue = g.getBlues();
-		int* green = g.getGreen();
+		int* green = g.getGreens();
 
 		for (int i = 0; i < g.getSize(); ++i)
 		{	
+			/*
+			cout << "red: " << red[i] << endl;
+			cout << "blue: " << blue[i] << endl;
+			cout << "green: " << green[i] << endl;
+			*/
+
 			if (red[i] > solution[0] || blue[i] > solution[1] || green[i] > solution[2])
 				check = false;
 		}

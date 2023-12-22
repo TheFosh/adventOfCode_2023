@@ -23,7 +23,7 @@ public:
 
 	int* getReds() { return red; }
 	int* getBlues() { return blue; }
-	int* getGreen() { return green; }
+	int* getGreens() { return green; }
 
 	//////FOR TESTING//////
 	void printArrays(); // Returns string contents of arrays

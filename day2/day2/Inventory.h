@@ -15,9 +15,12 @@ class Inventory {
 public:
 	// Given a string of a text file, 
 	// the list of game objects is created using the data file
-	Inventory(string);// Constructor
-//	~Inventory();// Deconstructor
+	Inventory(string);
 	int solvePuzzle(int* );// Puzzle solving method
+
+	///FOR PART 2///
+	// Creates list containing game objects with min sets
+	list<Game> getMinSet();
 
 	///////FOR TESTING////////
 	void printInventory();

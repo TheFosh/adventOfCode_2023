@@ -14,6 +14,9 @@
 
 #include "Inventory.h"
 
+//Prints contents of list object
+void printList(list<Game>);
+
 int main() {
 
 	// Creats inventory object with all game objects from given input file.
@@ -27,6 +30,24 @@ int main() {
 
 	// Given the solution set,
 	// the inventory method, solveProblem, prints out solution to puzzle
-	cout << inv.solvePuzzle(solution);
+	// cout << inv.solvePuzzle(solution); // My answer- 2512
 
+	///PART 2///
+	// Given all games in the input games,
+	// make the minimum possible set of a game.
+	// Sum the power of the numbers found in that set (answer)
+	list<Game> myList = inv.getMinSet();
+
+	//printList(myList);
+}
+
+///FOR TESTING///
+void printList(list<Game> _list) {
+
+	list<Game>::iterator itr = _list.begin();
+
+	for (itr; itr != _list.end(); ++itr)
+	{
+		cout << *itr << endl;
+	}
 }

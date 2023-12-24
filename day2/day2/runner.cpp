@@ -14,8 +14,10 @@
 
 #include "Inventory.h"
 
-//Prints contents of list object
+// Prints contents of list object
 void printList(list<Game>);
+// Gets answer for part 2
+int getPowerNum(list<Game>);
 
 int main() {
 
@@ -26,11 +28,12 @@ int main() {
 	// Solution set for part 1
 	// Number correspnding to color wanted
 	// {red, blue, green}
+
 	int solution[] = {12,14,13};
 
 	// Given the solution set,
 	// the inventory method, solveProblem, prints out solution to puzzle
-	// cout << inv.solvePuzzle(solution); // My answer- 2512
+	 cout << inv.solvePuzzle(solution); // My answer- 2512
 
 	///PART 2///
 	// Given all games in the input games,
@@ -38,7 +41,7 @@ int main() {
 	// Sum the power of the numbers found in that set (answer)
 	list<Game> myList = inv.getMinSet();
 
-	//printList(myList);
+	cout << getPowerNum(myList); // My answer - 67335
 }
 
 ///FOR TESTING///
@@ -50,4 +53,24 @@ void printList(list<Game> _list) {
 	{
 		cout << *itr << endl;
 	}
+}
+
+// Gets answer for part 2 of puzzle
+// Multiplies numbers in each set.
+// Then adds every sets total 
+int getPowerNum(list<Game> _list) {
+	int total = 0;
+
+	list<Game>::iterator itr = _list.begin();
+	for (itr; itr != _list.end(); ++itr) {
+
+		int* currRed = (*itr).getReds();
+		int* currBlue = (*itr).getBlues();
+		int* currGreen = (*itr).getGreens();
+
+		total += (*currRed) * (*currBlue) * (*currGreen);
+
+	}
+
+	return total;
 }

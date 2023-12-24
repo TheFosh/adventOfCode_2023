@@ -37,14 +37,14 @@ Inventory::Inventory(string fileName) {
 list<Game> Inventory::getMinSet() {
 	list<Game> myList;
 
-	list<Game>::iterator itr;
+	list<Game>::iterator itr = data.begin();
 	for (itr; itr != data.end(); ++itr)
 	{
 		Game g = *itr;
 
-		int* redMax = 0;
-		int* blueMax = 0;
-		int* greenMax = 0;
+		int redMax = 0;
+		int blueMax = 0;
+		int greenMax = 0;
 
 		int* currReds = g.getReds();
 		int* currBlues = g.getBlues();
@@ -52,16 +52,16 @@ list<Game> Inventory::getMinSet() {
 
 		for (int i = 0; i < g.getSize(); ++i)
 		{
-			if (currReds[i] > *redMax)
-				*redMax = currReds[i];
-			if (currBlues[i] > *blueMax)
-				*blueMax = currBlues[i];
-			if (currGreens[i] > *greenMax)
-				*greenMax = currGreens[i];
+			if (currReds[i] > redMax)
+				redMax = currReds[i];
+			if (currBlues[i] > blueMax)
+				blueMax = currBlues[i];
+			if (currGreens[i] > greenMax)
+				greenMax = currGreens[i];
 		}
 		int size = 1;
 
-		Game tempGame(size, redMax, blueMax, greenMax);
+		Game tempGame(size, &redMax, &blueMax, &greenMax);
 		myList.push_back(tempGame);
 	}
 

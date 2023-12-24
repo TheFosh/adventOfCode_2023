@@ -5,5 +5,7 @@
     * For part 1, find this for all lines and add numbers together for the answer to the puzzle.
     * For part 2, there were some words that resemble words (i.e. one, two, ...). These will now count for valid digits in the puzzle.
 2. [Cube Conundrum](https://github.com/TheFosh/adventOfCode_2023/tree/main/day2/day2):
-   * Given an input,
+   * Given an input, each line represents a game of where a random number of cubes is pulled from a bag. The cubes can be red, green, or blue and always put back into the bag after each pull.
+   * For part 1, find out which games are possible have a bag of 12 red, 13 green, and 14 blue cubes. Add the number of the valid games together. This is the puzzle answer.
+   * For part 2, figure out the smallest possible set of cubes in the bag for each game. Multiply each color of a game together and add these numbers to each games. This the puzzle answer.
 ## Will try to continue more

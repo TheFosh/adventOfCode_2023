@@ -35,19 +35,38 @@ Board::Board(string fileName)
 int Board::getTotal() {
 	int total = 0;
 
-	//for(int row = 0; row < ROWS; ++row)
-	//{
-	//	for (int col = 0; col < COLUMNS; ++col)
-	//	{
-	//		// Checks if the char checked is a number
-	//		// Then checks if there is a symbol around it
-	//		if (isNum(row, col) && checkIfSymbolAround(row, col))
-	//		{
-	//			// If both are true, the number is added to the total
-	//			total += createNum(0, row, col);
-	//		}
-	//	}
-	//}
+	for(int row = 0; row < ROWS; ++row)
+	{
+		for (int col = 0; col < COLUMNS; ++col)
+		{
+
+			if (isNum(row, col))
+			{
+				cout << "Num: " << createNum(0,row,col) << endl;
+
+				if (checkIfSymbolAround(row, col))
+					cout << "Has symbol" << endl;
+				else
+					cout << "Doesn't have symbol" << endl;
+			}
+
+			// Checks if the char checked is a number
+			// Then checks if there is a symbol around it
+			if (isNum(row, col) && checkIfSymbolAround(row, col))
+			{
+				// If both are true, the number is added to the total
+				
+				int validNum = createNum(0, row, col);
+
+				//cout << "Valid num: " << validNum << endl;
+
+				total += validNum;
+
+				// To skip rest of numbers
+				col += getNumLength(validNum) - 1;
+			}
+		}
+	}
 
 	return total;
 }
@@ -101,6 +120,29 @@ bool Board::checkIfSymbolAround(int row, int col)
 		return true;
 
 	return false;
+}
+
+// Creates a number based on the given position recurcively
+int Board::createNum(int num, int row, int col) {
+
+	int tempNum = allData[row][col] - '0';
+
+	num += tempNum;
+
+	if (col + 1 != COLUMNS && isNum(row, col + 1))
+		return createNum(num * 10, row, col + 1);
+
+	return num;
+}
+
+// Gets the number of digits in the number given
+// Finds this recurcively
+int Board::getNumLength(int num) {
+
+	if (num >= 10)
+		return 1 + getNumLength(num / 10);
+
+	return 1;
 }
 
 // Prints out contents of 2D array

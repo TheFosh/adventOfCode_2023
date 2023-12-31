@@ -25,6 +25,7 @@ protected:
 	bool isNum(int, int);// Checks if the char at the current position is a number
 	int createNum(int num, int, int);// Creates a number at the current position
 	bool checkIfSymbolAround(int, int);// Checks if a number at the given position has a valid symbol
+	int getNumLength(int);// Given a number, it returns the number of digits
 
 private:
 	const int ROWS = 140;// Number of rows in board

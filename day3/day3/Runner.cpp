@@ -3,5 +3,7 @@
 int main() {
 	Board myBoard("input.txt");
 
-//	cout << myBoard.getTotal() << endl;
+//	myBoard.printBoard();
+
+	cout << myBoard.getTotal() << endl;
 }

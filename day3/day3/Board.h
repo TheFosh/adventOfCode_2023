@@ -10,8 +10,6 @@
 #include <string>
 #include <iostream>
 
-#include
-
 using namespace std;
 
 class Board 
@@ -20,14 +18,18 @@ public:
 	Board(string);// Makes the board based on the given string for a text file
 	int getTotal();// Gets solution to puzzle
 
+	////FOR TESTING////
+	void printBoard();
+
 protected:
-	char* makeBoard();// Creates 2D array for the object
 	bool isNum(int, int);// Checks if the char at the current position is a number
 	int createNum(int num, int, int);// Creates a number at the current position
-	bool checkIfSymbolAround(int num, int, int);// Checks if a number at the given position has a valid symbol
+	bool checkIfSymbolAround(int, int);// Checks if a number at the given position has a valid symbol
 
 private:
-	char* allData;
+	const int ROWS = 140;// Number of rows in board
+	const int COLUMNS = 140;// Number of columns in board
+	char allData[140][140];// 2D ARRAY
 };
 
 #endif // !B_H_

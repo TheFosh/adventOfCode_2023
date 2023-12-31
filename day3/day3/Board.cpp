@@ -6,6 +6,7 @@ Board::Board(string fileName)
 	fstream inFile;
 
 	try {
+		// Trys to open file
 		inFile.open(fileName);
 
 		if (inFile.fail()) throw exception("File not found");
@@ -17,14 +18,99 @@ Board::Board(string fileName)
 	
 	string tmpLine;
 
-	inFile >> tmpLine;
+	//Adds contents of file to the board's 2D array
+	int rowCount = 0;
+	while (inFile >> tmpLine) {
 
-	int numberOfRows;
-	int numberOfColumns = tmpLine.size();
+		for (int col = 0; col < tmpLine.size(); ++col)
+		{
+			allData[rowCount][col] = tmpLine[col];
+		}
 
-	while () {
-
+		++rowCount;
 	}
+}
 
-	allData = new char[1][1];
+// Gets answer to puzzle
+int Board::getTotal() {
+	int total = 0;
+
+	//for(int row = 0; row < ROWS; ++row)
+	//{
+	//	for (int col = 0; col < COLUMNS; ++col)
+	//	{
+	//		// Checks if the char checked is a number
+	//		// Then checks if there is a symbol around it
+	//		if (isNum(row, col) && checkIfSymbolAround(row, col))
+	//		{
+	//			// If both are true, the number is added to the total
+	//			total += createNum(0, row, col);
+	//		}
+	//	}
+	//}
+
+	return total;
+}
+
+
+// Returns whether the char in the board given is a number
+bool Board::isNum(int row, int col)
+{
+	return (allData[row][col] - '0' >= 0) && ('9' - allData[row][col] >= 0);
+}
+
+// Checks around the given poistion in 2D array to see if a symbol is around using recerison
+bool Board::checkIfSymbolAround(int row, int col)
+{
+	if (col +1 != COLUMNS && isNum(row, col + 1))
+		return checkIfSymbolAround(row, col + 1);
+
+	bool checkUp = row - 1 != -1;
+	bool checkDown = row + 1 != ROWS;
+
+	bool checkLeft = col - 1 != -1;
+	bool checkRight = col + 1 != COLUMNS;
+
+
+	// Could not find an easier way to check all eight spots around given point
+	// Will look into possible ways
+
+	/*Top left*/ 
+	if ((checkUp && checkLeft) && (allData[row - 1][col - 1] != '.' && !isNum(row - 1, col - 1)))
+		return true;
+	/*Top*/
+	if ((checkUp) && (allData[row - 1][col] != '.' && !isNum(row - 1, col)))
+		return true;
+	/*Top Right*/
+	if ((checkUp && checkRight) && (allData[row - 1][col + 1] != '.' && !isNum(row - 1, col + 1)))
+		return true;
+	/*Left*/
+	if ((checkLeft) && (allData[row][col - 1] != '.' && !isNum(row, col - 1)))
+		return true;
+	/*Right*/
+	if ((checkRight) && (allData[row][col + 1] != '.' && !isNum(row, col + 1)))
+		return true;
+	/*Bottom Left*/
+	if ((checkDown && checkLeft) && (allData[row + 1][col - 1] != '.' && !isNum(row + 1, col - 1)))
+		return true;
+	/*Bottom*/
+	if ((checkDown) && (allData[row + 1][col] != '.' && !isNum(row + 1, col)))
+		return true;
+	/*Bottom Right*/
+	if ((checkDown && checkRight) && (allData[row + 1][col + 1] != '.' && !isNum(row + 1, col + 1)))
+		return true;
+
+	return false;
+}
+
+// Prints out contents of 2D array
+void Board::printBoard(){
+	for (int row = 0; row < ROWS; ++row)
+	{
+		for (int col = 0; col < COLUMNS; ++col)
+		{
+			cout << allData[row][col];
+		}
+		cout << endl;
+	}
 }

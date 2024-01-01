@@ -40,16 +40,6 @@ int Board::getTotal() {
 		for (int col = 0; col < COLUMNS; ++col)
 		{
 
-			if (isNum(row, col))
-			{
-				cout << "Num: " << createNum(0,row,col) << endl;
-
-				if (checkIfSymbolAround(row, col))
-					cout << "Has symbol" << endl;
-				else
-					cout << "Doesn't have symbol" << endl;
-			}
-
 			// Checks if the char checked is a number
 			// Then checks if there is a symbol around it
 			if (isNum(row, col) && checkIfSymbolAround(row, col))
@@ -81,15 +71,12 @@ bool Board::isNum(int row, int col)
 // Checks around the given poistion in 2D array to see if a symbol is around using recerison
 bool Board::checkIfSymbolAround(int row, int col)
 {
-	if (col +1 != COLUMNS && isNum(row, col + 1))
-		return checkIfSymbolAround(row, col + 1);
 
 	bool checkUp = row - 1 != -1;
 	bool checkDown = row + 1 != ROWS;
 
 	bool checkLeft = col - 1 != -1;
 	bool checkRight = col + 1 != COLUMNS;
-
 
 	// Could not find an easier way to check all eight spots around given point
 	// Will look into possible ways
@@ -118,6 +105,9 @@ bool Board::checkIfSymbolAround(int row, int col)
 	/*Bottom Right*/
 	if ((checkDown && checkRight) && (allData[row + 1][col + 1] != '.' && !isNum(row + 1, col + 1)))
 		return true;
+
+	if (col + 1 != COLUMNS && isNum(row, col + 1))
+		return checkIfSymbolAround(row, col + 1);
 
 	return false;
 }

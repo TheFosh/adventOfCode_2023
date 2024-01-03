@@ -5,5 +5,5 @@ int main() {
 
 //	myBoard.printBoard();
 
-	cout << myBoard.getTotal() << endl;
+	cout << myBoard.getTotal() << endl;// My answer- 539590
 }

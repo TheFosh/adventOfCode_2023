@@ -61,6 +61,24 @@ int Board::getTotal() {
 	return total;
 }
 
+// Gets answer for specific symbols
+int Board::getGearTotal() {
+	int total = 0;
+
+	for (int row = 0; row < ROWS; ++row)
+	{
+		for (int col = 0; col < COLUMNS; ++col)
+		{
+			if (allData[row][col] == '*' && countNumsAround(row, col) == 2)
+			{
+				total += getTotalAround(row, col);
+			}
+		}
+	}
+
+	return total;
+}
+
 
 // Returns whether the char in the board given is a number
 bool Board::isNum(int row, int col)

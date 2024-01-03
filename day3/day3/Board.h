@@ -16,7 +16,8 @@ class Board
 {
 public:
 	Board(string);// Makes the board based on the given string for a text file
-	int getTotal();// Gets solution to puzzle
+	int getTotal();// Gets solution to puzzle (Part 1)
+	int getGearTotal();// Gets solution to puzzle (Part 2)
 
 	////FOR TESTING////
 	void printBoard();
@@ -26,6 +27,9 @@ protected:
 	int createNum(int num, int, int);// Creates a number at the current position
 	bool checkIfSymbolAround(int, int);// Checks if a number at the given position has a valid symbol
 	int getNumLength(int);// Given a number, it returns the number of digits
+
+	int countNumsAround(int, int);// At a position, count how many numbers are around it
+	int getTotalAround(int, int);// At a position, knowing there are numbers, multiply them together
 
 private:
 	const int ROWS = 140;// Number of rows in board

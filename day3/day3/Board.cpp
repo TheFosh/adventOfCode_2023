@@ -67,7 +67,7 @@ int Board::getGearTotal() {
 
 	for (int row = 0; row < ROWS; ++row)
 	{
-		for (int col = 0; col < 3; ++col)
+		for (int col = 0; col < COLUMNS; ++col)
 		{
 			if (allData[row][col] == '*' && countNumsAround(row, col) == 2)
 			{
@@ -189,19 +189,86 @@ int Board::countNumsAround(int row, int col) {
 	if ((checkRight) && isNum(row, col + 1))
 		++count;
 	/*Bottom Left*/
-	if ((checkDown && checkLeft) && (allData[row + 1][col - 1] != '.' && !isNum(row + 1, col - 1)))
+	if ((checkDown && checkLeft) && (isNum(row + 1, col - 1)))
 	{
+		++count;
 
+		/*Bottom is not and bottom right is*/
+		if (checkRight && allData[row + 1][col] == '.' && isNum(row + 1, col + 1))
+			++count;
 	}
 
 	/*Bottom*/
-	else if ((checkDown) && (allData[row + 1][col] != '.' && !isNum(row + 1, col)))
-		return true;
+	else if ((checkDown) && (isNum(row + 1, col)))
+		++count;
 	/*Bottom Right*/
-	else if ((checkDown && checkRight) && (allData[row + 1][col + 1] != '.' && !isNum(row + 1, col + 1)))
-		return true;
+	else if ((checkDown && checkRight) && (isNum(row + 1, col + 1)))
+		++count;
 
 	return count;
+}
+
+// Fetches all different numbers around the given location.
+// Returns the numbers mulitplied together.
+int Board::getTotalAround(int row, int col) {
+
+	int total = 1;
+
+	bool checkUp = row - 1 != -1;
+	bool checkDown = row + 1 != ROWS;
+
+	bool checkLeft = col - 1 != -1;
+	bool checkRight = col + 1 != COLUMNS;
+
+	// Could not find an easier way to check all eight spots around given point
+	// Will look into possible ways
+
+	/*Top Left*/
+	if ((checkUp && checkLeft) && isNum(row - 1, col - 1))
+	{
+		total = getNum(row - 1, col - 1);
+		/*Top is not and top right is*/
+		if (checkRight && allData[row - 1][col] == '.' && isNum(row - 1, col + 1))
+			total *= getNum(row - 1, col + 1);
+	}
+	/*Top*/
+	else if ((checkUp) && (isNum(row - 1, col)))
+		total *= getNum(row - 1, col);
+	/*Top Right*/
+	else if ((checkUp && checkRight) && isNum(row - 1, col + 1))
+		total *= getNum(row - 1, col + 1);
+	/*Left*/
+	if ((checkLeft) && isNum(row, col - 1))
+		total *= getNum(row, col - 1);
+	/*Right*/
+	if ((checkRight) && isNum(row, col + 1))
+		total *= getNum(row, col + 1);
+	/*Bottom Left*/
+	if ((checkDown && checkLeft) && (isNum(row + 1, col - 1)))
+	{
+		total *= getNum(row + 1, col - 1);
+
+		/*Bottom is not and bottom right is*/
+		if (checkRight && allData[row + 1][col] == '.' && isNum(row + 1, col + 1))
+			total *= getNum(row + 1, col + 1);
+	}
+	/*Bottom*/
+	else if ((checkDown) && (isNum(row + 1, col)))
+		total *= getNum(row + 1, col);
+	/*Bottom Right*/
+	else if ((checkDown && checkRight) && (isNum(row + 1, col + 1)))
+		total *= getNum(row + 1, col + 1);
+
+	return total;
+}
+
+//Finds the starting poistion of a number recursivly and returns that number
+int Board::getNum(int row, int col) {
+	
+	if (col - 1 == -1 || !isNum(row, col -1))
+		return createNum(0, row, col);
+
+	return getNum(row, col - 1);
 }
 
 // Prints out contents of 2D array

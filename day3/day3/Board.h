@@ -28,8 +28,9 @@ protected:
 	bool checkIfSymbolAround(int, int);// Checks if a number at the given position has a valid symbol
 	int getNumLength(int);// Given a number, it returns the number of digits
 
-	int countNumsAround(int, int);// At a position, count how many numbers are around it
-	int getTotalAround(int, int);// At a position, knowing there are numbers, multiply them together
+	int countNumsAround(int, int);// At a position, count how many numbers are around it.
+	int getTotalAround(int, int);// At a position, knowing there are numbers, multiply them together.
+	int getNum(int, int);// At given position of a number, finds start and then returns the full number.
 
 private:
 	const int ROWS = 140;// Number of rows in board

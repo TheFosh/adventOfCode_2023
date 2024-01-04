@@ -5,5 +5,6 @@ int main() {
 
 //	myBoard.printBoard();
 
-	cout << myBoard.getTotal() << endl;// My answer- 539590
+//	cout << myBoard.getTotal() << endl;// My answer- 539590
+//	cout << myBoard.getGearTotal() << endl; // My answer- 80703636
 }

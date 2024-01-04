@@ -67,7 +67,7 @@ int Board::getGearTotal() {
 
 	for (int row = 0; row < ROWS; ++row)
 	{
-		for (int col = 0; col < COLUMNS; ++col)
+		for (int col = 0; col < 3; ++col)
 		{
 			if (allData[row][col] == '*' && countNumsAround(row, col) == 2)
 			{
@@ -151,6 +151,57 @@ int Board::getNumLength(int num) {
 		return 1 + getNumLength(num / 10);
 
 	return 1;
+}
+
+// Counts the number of different number groups around given position using recursion
+int Board::countNumsAround(int row, int col) {
+
+	int count = 0;
+
+	bool checkUp = row - 1 != -1;
+	bool checkDown = row + 1 != ROWS;
+
+	bool checkLeft = col - 1 != -1;
+	bool checkRight = col + 1 != COLUMNS;
+
+	// Could not find an easier way to check all eight spots around given point
+	// Will look into possible ways
+
+	/*Top Left*/
+	if ((checkUp && checkLeft) && isNum(row - 1, col - 1))
+	{
+		++count;
+
+		/*Top is not and top right is*/
+		if (checkRight && allData[row - 1][col] == '.' && isNum(row - 1, col + 1))
+			++count;
+	}
+	/*Top*/
+	else if ((checkUp) && (isNum(row - 1, col)))
+		++count;
+	/*Top Right*/
+	else if ((checkUp && checkRight) && isNum(row - 1, col + 1))
+		++count;
+	/*Left*/
+	if ((checkLeft) && isNum(row, col - 1))
+		++count;
+	/*Right*/
+	if ((checkRight) && isNum(row, col + 1))
+		++count;
+	/*Bottom Left*/
+	if ((checkDown && checkLeft) && (allData[row + 1][col - 1] != '.' && !isNum(row + 1, col - 1)))
+	{
+
+	}
+
+	/*Bottom*/
+	else if ((checkDown) && (allData[row + 1][col] != '.' && !isNum(row + 1, col)))
+		return true;
+	/*Bottom Right*/
+	else if ((checkDown && checkRight) && (allData[row + 1][col + 1] != '.' && !isNum(row + 1, col + 1)))
+		return true;
+
+	return count;
 }
 
 // Prints out contents of 2D array

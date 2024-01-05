@@ -8,4 +8,8 @@
    * Given an input, each line represents a game of where a random number of cubes is pulled from a bag. The cubes can be red, green, or blue and always put back into the bag after each pull.
    * For part 1, find out which games are possible have a bag of 12 red, 13 green, and 14 blue cubes. Add the number of the valid games together. This is the puzzle answer.
    * For part 2, figure out the smallest possible set of cubes in the bag for each game. Multiply each color of a game together and add these numbers to each games. This the puzzle answer.
+3. [Gear Ratios](https://github.com/TheFosh/adventOfCode_2023/tree/main/day3/day3):
+   * Given an input, this forms a 2D grid of numbers and symbols
+   * For part 1, some numbers have symbols next to them and some don't. I must add together all numbers near a symbol other than the "." symbol. This is the answer to the puzzle.
+   * For part 2, some symbols in the grid are the "*" symbol. I must find these with exactly two numbers next them and multiply them together then add all of these multiplactions. This is the answer to the puzzle.
 ## Will try to continue more

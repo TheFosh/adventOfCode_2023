@@ -17,15 +17,18 @@ public:
 	Card(const Card&);// Copy constructor
 
 	// Getters for the arrays
-	int* getNums() { return nums; }
-	int* getWinners() { return winners; }
+	int* getNums() { return *nums; }
+	int* getWinners() { return *winners; }
 
 protected:
 	void sortWinners();// Sorts the winners array
 
 private:
-	int* nums;// Pointer to an array of your numbers
-	int* winners;// Pointer to an array of the winning numbers
+	const int NUM_CAPACITY = 25;
+	const int WINNER_CAPACITY = 10;
+
+	int* nums[25];// Pointer to an array of your numbers
+	int* winners[10];// Pointer to an array of the winning numbers
 };
 
 #endif // !C_H

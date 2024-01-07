@@ -1,11 +1,20 @@
+// Jake Swanson: Advent of Code 2023 - Day 4
+// Card object header file
+/*
+* For the puzzle, there are "cards" that contain a set of winning numbers
+* and numbers you have. This object is ment to hold this information.
+*/
+
 using namespace std;
+#include <string>
 
 #ifndef C_H
 #define C_H
 
 class Card {
 public:
-	Card(string);// Given the line of text, a card object is constructor
+	Card(string);// Given the line of text, a card object is constructed
+	Card(const Card&);// Copy constructor
 
 	// Getters for the arrays
 	int* getNums() { return nums; }

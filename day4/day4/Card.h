@@ -7,6 +7,7 @@
 
 using namespace std;
 #include <string>
+#include <algorithm>
 
 #ifndef C_H
 #define C_H
@@ -14,21 +15,19 @@ using namespace std;
 class Card {
 public:
 	Card(string);// Given the line of text, a card object is constructed
-	Card(const Card&);// Copy constructor
 
 	// Getters for the arrays
-	int* getNums() { return *nums; }
-	int* getWinners() { return *winners; }
+	int* getNums() { return nums; }
+	int* getWinners() { return winners; }
 
-protected:
-	void sortWinners();// Sorts the winners array
+	friend const ostream& operator<<(const ostream&, const Card&);// Used for printing out card contents
 
 private:
 	const int NUM_CAPACITY = 25;
 	const int WINNER_CAPACITY = 10;
 
-	int* nums[25];// Pointer to an array of your numbers
-	int* winners[10];// Pointer to an array of the winning numbers
+	int nums[25];// Pointer to an array of your numbers
+	int winners[10];// Pointer to an array of the winning numbers
 };
 
 #endif // !C_H

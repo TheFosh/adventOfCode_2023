@@ -22,11 +22,14 @@ Inventory::Inventory(string fileName) {
 
 	//Using a place holder variable, each line is read in the file and is sent to create a new card object
 	string currentLine;
+	int count = 1;
 	while (getline(inFile, currentLine)) {
-		Card currentCard(currentLine);
+		Card currentCard(count, currentLine);
 
 		// The new card is then added to the inventory's list
 		cardData.push_back(currentCard);
+
+		++count;
 	}
 
 	inFile.close();
@@ -56,11 +59,19 @@ int Inventory::calScore() {
 int Inventory::countWinningCards() {
 	int total = 0;
 
+	list<Card>::iterator itr = cardData.begin();
+
+	//for (int i = 0; i < cardData.size() -4; ++i)
+	//{
+	//	++itr;
+	//}
+
 	// Goes through all cards
-	for (list<Card>::iterator itr = cardData.begin(); itr != ++(++cardData.begin()); ++itr)
+	for (itr; itr != cardData.end(); ++itr)
 	{
 		// If there is at least	1 pair then a score is calculated and added to the total
-		total += recursiveCounting(itr, 0);
+		if((*itr).countPairs() > 0)
+			total += recursiveCounting(itr, 0) + 1;
 	}
 
 	return total;
@@ -71,8 +82,8 @@ int Inventory::recursiveCounting(list<Card>::iterator itr, int total) {
 	int count = (*itr).countPairs();
 
 	for (int i = 0; i < count; ++i) {
-
-		total += recursiveCounting(++itr, ++total);
+		++itr;
+		total = recursiveCounting(itr, ++total);
 	}
 
 	return total;

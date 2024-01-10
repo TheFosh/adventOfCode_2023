@@ -7,7 +7,9 @@
 #include <iostream>
 #include <algorithm>
 
-Card::Card(string line) {
+Card::Card(int _index, string line) {
+	index = _index;
+
 	line = line.substr(line.find(':') + 1);
 
 	string winnerLine = line.substr(0, line.find('|'));

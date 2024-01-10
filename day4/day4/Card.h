@@ -14,7 +14,7 @@ using namespace std;
 
 class Card {
 public:
-	Card(string);// Given the line of text, a card object is constructed
+	Card(int, string);// Given the line of text, a card object is constructed
 
 	// Getters for the arrays
 	int* getNums() { return nums; }
@@ -25,6 +25,7 @@ public:
 	int countPairs();// Counts how many of the winning numbers match one your numbers
 
 private:
+	int index;// For debugging
 	const int NUM_CAPACITY = 25;
 	const int WINNER_CAPACITY = 10;
 

@@ -1,4 +1,5 @@
-﻿  Inventory.cpp
+﻿  Card.cpp
+  Inventory.cpp
   Runner.cpp
   Generating Code...
   day4.vcxproj -> C:\Users\SwansonJacob\git\adventOfCode_2023\day4\x64\Debug\day4.exe

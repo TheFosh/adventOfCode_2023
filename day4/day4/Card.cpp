@@ -5,6 +5,7 @@
 
 #include <sstream>
 #include <iostream>
+#include <algorithm>
 
 Card::Card(string line) {
 	line = line.substr(line.find(':') + 1);
@@ -45,7 +46,16 @@ Card::Card(string line) {
 int Card::countPairs() {
 	int count = 0;
 
-	//	binary_search(myArray, myArray +1, 0);
+	//Goes throw all possible numbers
+	for (int i = 0; i < NUM_CAPACITY; ++i)
+	{
+		int currentNum = nums[i];
+
+		//Using binary search, a pair is searched for in both the arrays
+		//Utlilizes that the winners array is sorted
+		if (binary_search(winners, winners + WINNER_CAPACITY, currentNum))
+			++count;
+	}
 
 	return count;
 }

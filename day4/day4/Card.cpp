@@ -1,3 +1,6 @@
+// Jake Swanson: Advent of code 2023 - day 4
+// Implementation file for the card object
+
 #include "Card.h"
 
 #include <sstream>

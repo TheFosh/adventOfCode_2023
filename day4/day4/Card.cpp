@@ -41,6 +41,15 @@ Card::Card(string line) {
 	}
 }
 
+
+int Card::countPairs() {
+	int count = 0;
+
+	//	binary_search(myArray, myArray +1, 0);
+
+	return count;
+}
+
 const ostream& operator<<(const ostream& out, const Card& c) {
 
 	cout << "Winning nums" << endl;

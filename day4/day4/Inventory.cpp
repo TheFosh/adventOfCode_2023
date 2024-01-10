@@ -33,5 +33,22 @@ Inventory::Inventory(string fileName) {
 }
 
 int Inventory::calScore() {
+	int total = 0;
 
+	// Goes through all cards
+	for (Card c : cardData) 
+	{
+		// Gets the count of winning pairs for each
+		int count = c.countPairs();
+
+		// If there is at least	1 pair then a score is calculated and added to the total
+		if (count >= 1) 
+		{
+			int score = 2 ^ (count - 1);
+
+			total += score;
+		}
+	}
+
+	return total;
 }

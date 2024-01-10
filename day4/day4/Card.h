@@ -22,6 +22,8 @@ public:
 
 	friend const ostream& operator<<(const ostream&, const Card&);// Used for printing out card contents
 
+	int countPairs();// Counts how many of the winning numbers match one your numbers
+
 private:
 	const int NUM_CAPACITY = 25;
 	const int WINNER_CAPACITY = 10;

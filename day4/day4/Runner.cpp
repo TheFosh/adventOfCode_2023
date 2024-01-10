@@ -14,7 +14,6 @@ int main() {
 	Inventory inv(fileName);
 
 	// See the result
-//	cout << inv.calScore() << endl;
-//	binary_search(myArray, myArray +1, 0);
+	cout << inv.calScore() << endl;
 
 }

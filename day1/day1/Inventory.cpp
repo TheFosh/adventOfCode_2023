@@ -26,6 +26,8 @@ bool Inventory::getData(string _fileName_) {
 		getline(inFile, data[i]);
 	}
 
+	inFile.close();
+
 	return true;
 }
 

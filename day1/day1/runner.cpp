@@ -23,6 +23,7 @@ int main() {
 		cerr << e.what() << endl;
 	}
 
+
 	inv.getTotal();
 
 	cout << inv.viewTotal(); 

@@ -13,6 +13,6 @@ int main() {
 	Inventory inv(fileName);
 
 	// See the result
-	cout << inv.calScore() << endl;
+	cout << inv.calScore() << endl;// My answer - 20667
 
 }

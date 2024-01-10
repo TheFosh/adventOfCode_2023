@@ -44,7 +44,7 @@ int Inventory::calScore() {
 		// If there is at least	1 pair then a score is calculated and added to the total
 		if (count >= 1) 
 		{
-			int score = 2 ^ (count - 1);
+			int score = pow(2, count -1);
 
 			total += score;
 		}

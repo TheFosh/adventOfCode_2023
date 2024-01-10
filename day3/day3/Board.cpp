@@ -29,6 +29,8 @@ Board::Board(string fileName)
 
 		++rowCount;
 	}
+
+	inFile.close();
 }
 
 // Gets answer to puzzle

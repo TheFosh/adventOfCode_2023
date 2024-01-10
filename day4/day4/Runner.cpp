@@ -10,12 +10,8 @@ int main() {
 	// Input file name
 	string fileName = "input.txt";
 
-	Card myCard(": 10 9 | 1");
-
-	cout << myCard;
-
 	// Object to hold the information
-//	Inventory inv(fileName);
+	Inventory inv(fileName);
 
 	// See the result
 //	cout << inv.calScore() << endl;

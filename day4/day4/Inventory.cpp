@@ -52,3 +52,28 @@ int Inventory::calScore() {
 
 	return total;
 }
+
+int Inventory::countWinningCards() {
+	int total = 0;
+
+	// Goes through all cards
+	for (list<Card>::iterator itr = cardData.begin(); itr != ++(++cardData.begin()); ++itr)
+	{
+		// If there is at least	1 pair then a score is calculated and added to the total
+		total += recursiveCounting(itr, 0);
+	}
+
+	return total;
+}
+
+int Inventory::recursiveCounting(list<Card>::iterator itr, int total) {
+
+	int count = (*itr).countPairs();
+
+	for (int i = 0; i < count; ++i) {
+
+		total += recursiveCounting(++itr, ++total);
+	}
+
+	return total;
+}

@@ -61,11 +61,6 @@ int Inventory::countWinningCards() {
 
 	list<Card>::iterator itr = cardData.begin();
 
-	/*for (int i = 0; i < cardData.size() -4; ++i)
-	{
-		++itr;
-	}*/
-
 	// Goes through all cards
 	for (itr; itr != cardData.end(); ++itr)
 	{

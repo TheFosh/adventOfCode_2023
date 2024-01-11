@@ -14,5 +14,5 @@ int main() {
 
 	// See the result
 	//cout << inv.calScore() << endl;// My answer - 20667
-	cout << inv.countWinningCards() << endl;
+	cout << inv.countWinningCards() << endl;// My Answer - 5833065
 }

@@ -61,30 +61,41 @@ int Inventory::countWinningCards() {
 
 	list<Card>::iterator itr = cardData.begin();
 
-	//for (int i = 0; i < cardData.size() -4; ++i)
-	//{
-	//	++itr;
-	//}
+	/*for (int i = 0; i < cardData.size() -4; ++i)
+	{
+		++itr;
+	}*/
 
 	// Goes through all cards
 	for (itr; itr != cardData.end(); ++itr)
 	{
 		// If there is at least	1 pair then a score is calculated and added to the total
 		if((*itr).countPairs() > 0)
-			total += recursiveCounting(itr, 0) + 1;
+			total += recursiveCounting(itr, 0);
+		++total;// Counts every card
 	}
 
 	return total;
 }
 
+/*
+* Given an iterator pointing towards a card, the count of it's winning numbers determines how
+* many copies are made of the the next cards after it. All these copies are then resent to this method to count
+* and check how many copies each one of those make.
+*/
 int Inventory::recursiveCounting(list<Card>::iterator itr, int total) {
 
-	int count = (*itr).countPairs();
+	int count = (*itr).countPairs();// Count of current card
 
+	// Goes through each iterator after the current one based on the count above
 	for (int i = 0; i < count; ++i) {
 		++itr;
+
+		// Sets the total count to the number of times this method is recursevly called
+		// This in effect counts the number of copies of a card
 		total = recursiveCounting(itr, ++total);
 	}
 
+	// When all copies have been looked through and counted, the total of that counting is returned
 	return total;
 }

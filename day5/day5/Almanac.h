@@ -4,8 +4,6 @@
 * Object contains all mappings for solving puzzle.
 */
 
-using namespace std;
-
 #include "Map.h"
 #include <list>
 
@@ -14,6 +12,8 @@ using namespace std;
 
 class Almanac {
 public:
+	Almanac(string);
+
 	int getLocation(int);// Given a num for a seed, a location that corresponds to all the mappings is returned
 
 private:

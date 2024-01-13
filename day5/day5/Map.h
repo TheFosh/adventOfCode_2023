@@ -5,11 +5,17 @@
 * and where it will be mapped to.
 */
 
+using namespace std;
+
+#include <string>
+
 #ifndef M_H
 #define M_H
 
 class Mapping {
 public:
+	Mapping(string);
+
 	// Getters for the private members
 	int getDestination() { return destination; }
 	int getSource() { return source; }

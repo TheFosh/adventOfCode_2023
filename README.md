@@ -12,4 +12,8 @@
    * Given an input, this forms a 2D grid of numbers and symbols
    * For part 1, some numbers have symbols next to them and some don't. I must add together all numbers near a symbol other than the "." symbol. This is the answer to the puzzle.
    * For part 2, some symbols in the grid are the "*" symbol. I must find these with exactly two numbers next them and multiply them together then add all of these multiplactions. This is the answer to the puzzle.
+4. [Scratchcards](https://github.com/TheFosh/adventOfCode_2023/tree/main/day4/day4):
+   * The input given is formatted as scratch cards where the winning numbers are on the left side of the '|' symbol and your given numbers are the ones on right side.
+   * For part 1, calculate the score for all the cards. The score is based on the number of pairs of your numbers and winning numbers. One pair makes the card one point then another after that pair doubles the score and so on. The score is answer to the puzzle
+   * For part 2, count how many cards are infront of you if the orignal cards can generate copies of cards. If a winning card has any number of pairs it generates a number copies of the next cards after it. The number of copies is based on the number of pairs from the original(if card 10 has 2 pairs then it makes a copy of 11 and 12). Copies of cards are also checked if they have winning pairs and can also generate copies after them. Find the number of original cards and copies of cards.
 ## Will try to continue more

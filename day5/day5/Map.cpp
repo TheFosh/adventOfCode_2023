@@ -1,3 +1,6 @@
+// Jake Swanson: Advent of code 2023
+// Mapping implementatuion file
+
 #include "Map.h"
 
 // Given a string three numbers are extracted set to their respective variables

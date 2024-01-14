@@ -6,23 +6,20 @@
 
 using namespace std;
 
-int findMin(list<int>);
+long long findMin(list<long long>);
 
 int main() {
+	Inventory myInventory("input.txt");
 
-/*	string fileContent = readFile("input.txt");
-
-	Inventory myInventory(fileContent);
-
-	cout << findMin(myInventory.getLocations()) << endl;*/ 
+	//cout << findMin(myInventory.getLocations()) << endl;
 
 	return 0;
 }
 
 
 // Function used to find the smallest of the all the locations in the given list
-int findMin(list<int> loc) {
-	list<int>::iterator itr = loc.begin();
+long long findMin(list<long long> loc) {
+	list <long long> ::iterator itr = loc.begin();
 
 	int min = *itr;
 

@@ -10,10 +10,12 @@ class Inventory {
 public:
 	Inventory(string);// Constructor
 
-	list<int> getLocations();// Get answer to puzzle and maps all seeds to locations and returns a list of them
+	list<long long> getLocations();// Get answer to puzzle and maps all seeds to locations and returns a list of them
+
+
 
 private:
-	list<int> seeds;
+	list<long long> seeds;
 	Almanac theMappings;
 };
 

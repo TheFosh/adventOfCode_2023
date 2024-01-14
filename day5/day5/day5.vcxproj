@@ -127,6 +127,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Almanac.cpp" />
+    <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="Runner.cpp" />
     <ClCompile Include="Map.cpp" />
   </ItemGroup>

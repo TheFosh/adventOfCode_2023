@@ -17,19 +17,19 @@ public:
 	Mapping(string);
 
 	// Getters for the private members
-	int getDestination() { return destination; }
-	int getSource() { return source; }
-	int getRange() { return range; }
+	long long getDestination() { return destination; }
+	long long getSource() { return source; }
+	long long getRange() { return range; }
 
-	bool withinSourceRange(int);// Checks if the given num is within the source range
+	bool withinSourceRange(long);// Checks if the given num is within the source range
 
 	// ASSUMED: The number provied is within the source range
-	int newDestination(int);// Given a num, the mapping of the new destination is returned
+	long newDestination(long);// Given a num, the mapping of the new destination is returned
 
 private:
-	int destination;
-	int source;
-	int range;
+	long long destination;
+	long long source;
+	long long range;
 };
 
 #endif // !M_H

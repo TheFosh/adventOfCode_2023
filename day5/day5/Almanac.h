@@ -12,9 +12,13 @@
 
 class Almanac {
 public:
+	Almanac(){};// Default constructor
 	Almanac(string);
 
-	int getLocation(int);// Given a num for a seed, a location that corresponds to all the mappings is returned
+	long getLocation(long long);// Given a num for a seed, a location that corresponds to all the mappings is returned
+
+protected:
+	list<Mapping> makeList(string);// Makes a list of mappings based on the string given to it
 
 private:
 	list<Mapping> toSoil;

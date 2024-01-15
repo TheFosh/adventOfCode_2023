@@ -21,10 +21,10 @@ public:
 	long long getSource() { return source; }
 	long long getRange() { return range; }
 
-	bool withinSourceRange(long);// Checks if the given num is within the source range
+	bool withinSourceRange(long long);// Checks if the given num is within the source range
 
 	// ASSUMED: The number provied is within the source range
-	long newDestination(long);// Given a num, the mapping of the new destination is returned
+	long long newDestination(long long);// Given a num, the mapping of the new destination is returned
 
 private:
 	long long destination;

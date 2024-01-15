@@ -50,8 +50,16 @@ Inventory::Inventory(string fileName) {
 	inFile.close();
 }
 
-list<int> Inventory::getLocations() {
-	theMappings.getLocation(1);
+list<long long> Inventory::getLocations() {
+	
+	list<long long> answerData;
+	
+	// Goes through list of seeds and sends each one to be converted to a location
+	for (list<long long>::iterator itr = seeds.begin(); itr != seeds.end(); ++itr)
+	{
+		// Answers are saved
+		answerData.push_back(theMappings.getLocation(*itr));
+	}
 
-	return *new list<int>;
+	return answerData;
 }

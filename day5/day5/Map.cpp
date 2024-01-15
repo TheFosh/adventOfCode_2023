@@ -8,14 +8,14 @@ Mapping::Mapping(string line) {
 	string currentNum = line.substr(0, line.find(' '));
 	line = line.substr(line.find(' ') +1);
 
-	destination = stoi(currentNum);
+	destination = stoll(currentNum);
 
 	currentNum = line.substr(0, line.find(' '));
 	line = line.substr(line.find(' ') + 1);
 
-	source = stoi(currentNum);
+	source = stoll(currentNum);
 
-	range = stoi(line);
+	range = stoll(line);
 }
 
 // Does math to check if the given number is within the bounds
@@ -23,7 +23,7 @@ Mapping::Mapping(string line) {
 * If given num is less then the sorce then it's impossible to be in the range.
 * Also, if the num is more then the source + the range then it's also impossible.
 */
-bool Mapping::withinSourceRange(int num) {
+bool Mapping::withinSourceRange(long long num) {
 	return (num >= source) && (source + range > num);
 }
 
@@ -34,6 +34,6 @@ bool Mapping::withinSourceRange(int num) {
 */
 // This math gets symplified down to the following equation
 // destination - source + the number 
-int Mapping::newDestination(int num) {
+long long Mapping::newDestination(long long num) {
 	return destination - source + num;
 }

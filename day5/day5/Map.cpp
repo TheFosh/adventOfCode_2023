@@ -19,7 +19,14 @@ Mapping::Mapping(string line) {
 }
 
 const Mapping& Mapping::operator=(const Mapping& rhs) {
+	if (this != &rhs) 
+	{
+		destination = rhs.destination;
+		source = rhs.source;
+		range = rhs.range;
+	}
 
+	return *this;
 }
 
 // Does math to check if the given number is within the bounds

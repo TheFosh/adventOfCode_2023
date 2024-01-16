@@ -18,6 +18,10 @@ Mapping::Mapping(string line) {
 	range = stoll(line);
 }
 
+const Mapping& Mapping::operator=(const Mapping& rhs) {
+
+}
+
 // Does math to check if the given number is within the bounds
 /*
 * If given num is less then the sorce then it's impossible to be in the range.

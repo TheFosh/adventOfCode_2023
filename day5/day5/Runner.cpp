@@ -11,7 +11,7 @@ long long findMin(list<long long>);
 int main() {
 	Inventory myInventory("input.txt");
 
-	myInventory.getLocations();
+	//myInventory.getLocations();
 
 	return 0;
 }

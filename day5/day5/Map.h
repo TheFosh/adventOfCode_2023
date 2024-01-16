@@ -26,6 +26,8 @@ public:
 	// ASSUMED: The number provied is within the source range
 	long long newDestination(long long);// Given a num, the mapping of the new destination is returned
 
+	const Mapping& operator=(const Mapping&);
+
 private:
 	long long destination;
 	long long source;

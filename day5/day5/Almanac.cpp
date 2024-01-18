@@ -6,13 +6,8 @@ Almanac::Almanac(string data) {
 	// Seed to soil
 	{
 		data = data.substr(data.find('\n') +1);
-		toSoil = makeList(data.substr(0, data.find(':')));
-		data = data.substr(data.find(':') + 2);
-
-		for (Mapping m : toSoil)
-		{
-			cout << m.getDestination() << endl;
-		}
+		toSoil = makeList(data.substr(0, data.find("\n\n")));
+		data = data.substr(data.find(':') + 1);
 	}
 	//// Soil to fertilizer
 	//{
@@ -41,16 +36,24 @@ Almanac::Almanac(string data) {
 	//}
 	//// Humidity to Locatiomn
 	//{
-	//	toLocation = makeList(data.substr(0, data.find(':')));
+	//	toLocation = makeList(data);
+	// 
+	///*for (Mapping m : toLocation)
+	//{
+	//	cout << m.getDestination() << endl;
+	//}*/
 	//}
 }
 
 list<Mapping> Almanac::makeList(string listData) {
+
+	listData = listData + '\n';
+
 	list<Mapping> currentList;
 
 	string currentLine;
 
-	while (listData.find_first_of('\n') != 0)
+	while (!listData.empty())
 	{
 		currentLine = listData.substr(0, listData.find_first_of('\n'));
 		currentList.push_back(Mapping(currentLine));

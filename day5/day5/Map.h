@@ -14,6 +14,7 @@ using namespace std;
 
 class Mapping {
 public:
+	Mapping() { destination = -1; source = -1; range = -1; };
 	Mapping(string);
 
 	// Getters for the private members
@@ -25,6 +26,7 @@ public:
 
 	// ASSUMED: The number provied is within the source range
 	long long newDestination(long long);// Given a num, the mapping of the new destination is returned
+	bool isDefault() { return destination == -1 && source == -1 && range == -1; }// Returns if the mapping is a default one or not
 
 	const Mapping& operator=(const Mapping&);
 

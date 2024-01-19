@@ -61,9 +61,60 @@ list<Mapping> Almanac::makeList(string listData) {
 }
 
 long long Almanac::getLocation(long long num) {
-	toFerterlizer.begin();
+	// To soil
+	Mapping currentMap = checkList(toSoil, num);
 
+	if (!currentMap.isDefault())
+		num = currentMap.newDestination(num);
 
+	// To fertilizer
+	currentMap = checkList(toFerterlizer, num);
+
+	if (!currentMap.isDefault())
+		num = currentMap.newDestination(num);
+	
+	// To water
+	currentMap = checkList(toWater, num);
+
+	if (!currentMap.isDefault())
+		num = currentMap.newDestination(num);
+
+	// To light
+	currentMap = checkList(toLight, num);
+
+	if (!currentMap.isDefault())
+		num = currentMap.newDestination(num);
+	
+	// To temperature
+	currentMap = checkList(toTemp, num);
+
+	if (!currentMap.isDefault())
+		num = currentMap.newDestination(num);
+
+	// To humidity
+	currentMap = checkList(toHumidity, num);
+
+	if (!currentMap.isDefault())
+		num = currentMap.newDestination(num);
+
+	// To location
+	currentMap = checkList(toLocation, num);
+
+	if (!currentMap.isDefault())
+		num = currentMap.newDestination(num);
 
 	return num;
+}
+
+Mapping Almanac::checkList(list<Mapping> currentList, int num) {
+	
+	list<Mapping>::iterator itr = currentList.begin();
+
+	for (itr; itr != currentList.end(); ++itr)
+	{
+		if ((*itr).withinSourceRange(num))
+			return *itr;
+	}
+
+	return *new Mapping;
 }

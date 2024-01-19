@@ -27,6 +27,7 @@ public:
 
 protected:
 	list<Mapping> makeList(string);// Makes a list of mappings based on the string given to it
+	Mapping checkList(list<Mapping>, int);// Given a list and a number, the list is checked through to see if the number is in any of the mappings
 
 private:
 	list<Mapping> toSoil;

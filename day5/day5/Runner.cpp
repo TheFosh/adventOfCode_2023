@@ -11,7 +11,7 @@ long long findMin(list<long long>);
 int main() {
 	Inventory myInventory("input.txt");
 
-	//myInventory.getLocations();
+	cout << findMin(myInventory.getLocations());
 
 	return 0;
 }
@@ -21,7 +21,7 @@ int main() {
 long long findMin(list<long long> loc) {
 	list <long long> ::iterator itr = loc.begin();
 
-	int min = *itr;
+	long long min = *itr;
 
 	for (++itr; itr != loc.end(); ++itr)
 	{

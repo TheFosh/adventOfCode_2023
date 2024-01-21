@@ -106,7 +106,7 @@ long long Almanac::getLocation(long long num) {
 	return num;
 }
 
-Mapping Almanac::checkList(list<Mapping> currentList, int num) {
+Mapping Almanac::checkList(list<Mapping> currentList, long long num) {
 	
 	list<Mapping>::iterator itr = currentList.begin();
 

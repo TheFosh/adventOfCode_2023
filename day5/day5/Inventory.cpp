@@ -61,5 +61,7 @@ list<long long> Inventory::getLocations() {
 		answerData.push_back(theMappings.getLocation(*itr));
 	}
 
+//	answerData.push_back(theMappings.getLocation(*seeds.begin()));
+
 	return answerData;
 }
